@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap');
+
+$primary: rgb(121, 75, 196);
+$link-hover: darken($primary, 10%);
+
+* {
+  font-family: 'PT Sans', sans-serif !important;
+}
+
+a {
+  color: $primary !important;
+  transition: all .1s ease-in-out !important;
+}
+
+a:hover {
+  color: $link-hover !important;
+  text-decoration: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: rgb(121, 75, 196) !important;
+}
+
+.btn-primary {
+  background-color: $primary !important;
+  border: none !important;
+  color: #fff !important;
+  transition: all .1s ease-in-out !important;
+}
+
+.btn-primary:hover {
+  background-color: $link-hover !important;
+}
+
+.t-30 {
+  color: rgba(255, 255, 255, .3);
+}
+
+.t-50 {
+  color: rgba(255, 255, 255, .5);
+}

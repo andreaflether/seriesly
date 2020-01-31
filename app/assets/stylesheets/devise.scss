@@ -1,0 +1,183 @@
+.fab {
+  font-family: 'Font Awesome\ 5 Brands' !important;
+}
+
+i.fas {
+  font-family: 'Font Awesome\ 5 Free' !important;
+}
+
+.container-wrapper {
+  background-color: rgb(21, 24, 28) !important;
+  // box-shadow: 10px 10px 5px -8px rgba(15, 15, 15, 1);
+}
+
+input.form-control {
+  background-color: rgb(32, 35, 39) !important;
+  border: 1px solid rgb(32, 35, 39) !important;
+  box-shadow: 7px 7px 5px -8px rgba(18,18,18,1);
+  color: #A9A9A9 !important;
+  font-size: 1rem !important;
+  transition: border ease-in-out .15s !important;
+}
+
+input.form-control:focus {
+  box-shadow: none !important;
+  border: 1px solid rgb(121, 75, 196) !important;
+}
+
+input[type="checkbox"],
+	input[type="radio"] {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		display: block;
+		float: left;
+		margin-right: -2rem;
+		opacity: 0;
+		width: 1rem;
+		z-index: -1;
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+	text-decoration: none;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 0.7rem;
+	font-weight: 400;
+	padding-left: 2.4rem;
+	padding-right: 0.75rem;
+	position: relative;
+}
+
+.form-check-label {
+  font-size: 1rem !important;
+}
+
+input[type="checkbox"] + label:before,
+input[type="radio"] + label:before {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-family: 'Font Awesome\ 5 Free';
+	font-style: normal;
+	font-weight: normal;
+  font-size: 0.8rem !important;
+	text-transform: none !important;
+}
+
+input[type="checkbox"] + label:before,
+input[type="radio"] + label:before {
+	border-radius: 2px;
+	border: solid 1px;
+	content: '';
+	display: inline-block;
+	height: 1.3rem;
+	left: 0;
+	line-height: 1.3rem;
+	position: absolute;
+	text-align: center;
+	top: 2;
+	width: 1.3rem;
+  font-weight: 900;
+}
+
+input[type="checkbox"]:checked + label:before,
+input[type="radio"]:checked + label:before {
+	content: "\f00c";
+}
+
+input[type="checkbox"] + label:before {
+	border-radius: 2px;
+}
+
+input[type="checkbox"] + label,
+	input[type="radio"] + label {
+		color: #808080;
+}
+
+input[type="checkbox"] + label:before,
+input[type="radio"] + label:before {
+  background-color: rgb(32, 35, 39) !important;
+  border: none !important;
+}
+
+input[type="checkbox"]:checked + label:before,
+input[type="radio"]:checked + label:before {
+	background-color: rgb(121, 75, 196) !important;
+	border-color: rgb(121, 75, 196);
+	color: #ffffff;
+}
+
+input[type="checkbox"]:focus + label:before,
+input[type="radio"]:focus + label:before {
+	border-color: rgb(121, 75, 196);
+	box-shadow: 0 0 0 1px rgb(121, 75, 196);
+}
+
+.custom-input {
+  padding-left: 35px !important;
+  transition: all .15s ease-in-out;
+}
+
+.custom-control {
+  padding-left: 0.3rem !important;
+}
+
+.form-group.email::before {
+  content: "\f007";
+}
+
+.form-group.password::before {
+  content: "\f023";
+}
+
+.form-group.user_username::before {
+  padding-top: 6px !important;
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif !important;
+  content: '@';
+}
+
+.form-control.email, .form-control.password, .form-control.username, .form-control.name, .form-control.location {
+  height: calc(1.8em + .9rem + 2px);
+}
+
+.form-group.email::before, .form-group.password::before, .form-group.user_username::before {
+  font-family: 'Font Awesome\ 5 Free';
+  font-weight: 900;
+  position: absolute;
+  left: 36px;
+  padding-top: 10px;
+  color: #808080;
+}
+
+.form-group.email.icon-color::before, .form-group.password.icon-color::before, .form-group.user_username.icon-color::before {
+  color: rgb(121, 75, 196);
+}
+
+.password-instructions {
+  font-size: 0.9rem;
+}
+
+.inside-text {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+}
+
+.options-div > .col-5 {
+  background-color: rgba(255, 255, 255, 0.2);
+  height: 1px;
+}
+
+.fa-chevron-right {
+  font-size: 0.8rem;
+  margin-left: 0.35rem;
+  transition: all .15s ease-in-out;
+  // bottom: 29px;
+  position: absolute;
+}
+
+.moving-effect {
+  margin-left: 0.6rem !important;
+}

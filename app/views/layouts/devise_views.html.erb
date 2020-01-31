@@ -1,0 +1,30 @@
+<head>
+  <title>Seriesly?</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/raty/2.7.1/jquery.raty.min.css" rel="stylesheet">
+</head>
+
+<style>
+body {
+  background-color: rgb(0, 0, 0);
+}
+</style>
+
+<% if current_page?(controller: 'registrations', action: 'edit') %>
+  <%= yield %>
+<% else %>
+  <div class="modal-dialog modal-dialog-centered text-center">
+    <% if controller.controller_name == "passwords" && controller.action_name == "new" %>
+      <div class="col-md-12 col-sm-12 p-4 mx-auto container-wrapper modal-content">
+    <% else %>
+      <div class="col-md-10 col-sm-12 p-4 mx-auto container-wrapper modal-content">
+    <% end %>
+    <%= yield %>
+    </div>
+  </div>
+<% end %>
