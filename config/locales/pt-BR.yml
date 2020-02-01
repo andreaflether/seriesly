@@ -8,14 +8,15 @@ pt-BR:
           other: 'Usuários'
           attributes:
             username:
-              taken: 'já existe!'
-              blank: "Esse campo não pode ficar em branco!"
-              invalid: "Inválido!"
-              too-short: 'muito curto!'
-              too_long: 'muito longo!'
+              taken: 'nome de usuário não disponível'
+              blank: "campo não pode ficar em branco"
+              invalid: "inválido"
+              too_short: 'o nome é muito curto'
+              too_long: 'o nome é muito longo!'
             password:
-              too_short: "muito curta!"
+              too_short: "senha muito curta"
               too_long: "muito longa! Máximo: %{count} caracteres"
+              blank: "esse campo não pode ficar em branco"
       messages:
         record_invalid: 'A validação falhou: %{errors}'
         restrict_dependent_destroy:
@@ -121,7 +122,7 @@ pt-BR:
       month: Mês
       year: Ano
   errors:
-    format: "%{attribute} %{message}"
+    format: "%{message}"
     messages:
       accepted: deve ser aceito
       blank: não pode ficar em branco
@@ -223,8 +224,8 @@ pt-BR:
         delimiter: "."
   support:
     array:
-      last_word_connector: " e "
-      two_words_connector: " e "
+      last_word_connector: " / "
+      two_words_connector: " / "
       words_connector: ", "
   time:
     am: ''

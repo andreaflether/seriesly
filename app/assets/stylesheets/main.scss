@@ -44,6 +44,15 @@ h1, h2, h3, h4, h5, h6 {
   color: rgb(226, 36, 94) !important;
 }
 
+.btn-outline-danger {
+  border: 1px solid rgb(226, 36, 94) !important;
+}
+
+.btn-outline-danger:hover {
+  color: rgb(226, 36, 94) !important;
+  background-color: rgba(226, 36, 94, 0.15) !important;
+}
+
 .alert-danger {
   color: rgb(226, 36, 94) !important;
   background-color: rgba(226, 36, 94, 0.15) !important;

@@ -11,7 +11,7 @@ i.fas {
   // box-shadow: 10px 10px 5px -8px rgba(15, 15, 15, 1);
 }
 
-input.form-control {
+input.form-control, textarea.form-control {
   background-color: rgb(32, 35, 39) !important;
   border: 1px solid rgb(32, 35, 39) !important;
   box-shadow: 7px 7px 5px -8px rgba(18,18,18,1);
@@ -20,9 +20,14 @@ input.form-control {
   transition: border ease-in-out .15s !important;
 }
 
-input.form-control:focus {
+input.form-control:focus, textarea.form-control:focus {
   box-shadow: none !important;
   border: 1px solid rgb(121, 75, 196) !important;
+}
+
+.form-group > label {
+  color: rgb(120, 128, 135);
+  font-weight: bold !important;
 }
 
 input[type="checkbox"],
@@ -183,4 +188,12 @@ input[type="radio"]:focus + label:before {
 
 .devise-title {
   color: rgb(217, 217, 217) !important;
+}
+
+.sec-color {
+  color: rgb(110, 118, 125) !important;
+}
+
+abbr[title], abbr[data-original-title] {
+  text-decoration: none !important;
 }

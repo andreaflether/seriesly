@@ -1,36 +1,91 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<style>
+  body {
+    background-color: rgb(0, 0, 0);
+  }
+  .form-group.email::before, .form-group.password::before, .form-group.user_username::before {
+    content: '';
+  }
+  input.form-control {
+    color: rgb(150, 150, 150) !important;
+  }
+  .form-group > label, .edit-information {
+    color: rgb(175, 175, 175) !important;
+  }
+  hr {
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+  }
+</style>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h1 class="my-4 font-weight-bold devise-title">Preferências de conta</h1>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-5">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
+      <div class="form-inputs">
+        <%= f.input :email, required: true, input_html: { class: "email"} %>
+        <%= f.input :name, label: "Nome", input_html: { class: "name" } %>
+        <%= f.input :username, label: "Usuário", required: true, input_html: { class: "username" } %>
+        <%= f.input :bio, label: "Bio" %>
+        <%= f.input :location, label: "Estado/Cidade", input_html: { class: "location" } %>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-auto"></div>
+
+    <div class="col-md-5">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-3 col-sm-2 text-center">
+          <%= image_tag "https://pt.gravatar.com/userimage/94467047/20f10982f0400e26aca317e577069413.jpg?size=200",
+          class: "rounded-circle img-fluid profile-image" %>
+        </div>
+        <div class="col-md-9 col-sm-10 px-sm-0">
+          <p class="sec-color mb-0">Por padrão, usamos o <%= link_to 'Gravatar', "http://gravatar.com/pt" %>
+            que está associado ao email da sua conta. Mas, se preferir, você pode adicionar seu próprio ícone.
+          </p>
+        </div>
+      </div>
+
+      <hr>
+
+      <h4 class="my-3 devise-title font-weight-bold text-center">Mudar senha</h4>
+      <%= f.input :password, hint: "Deixe em branco se não quiser trocá-la", required: false,
+          input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation, required: false, input_html: { autocomplete: "new-password" } %>
+
+      <hr>
+
+      <div class="delete-account text-center">
+        <p class="sec-color">
+          Essa ação é permanente e não poderá ser desfeita. Suas informações pessoas serão removidas e todos os seus dados
+          ficarão ocultos.
+        </p>
+        <%= link_to "Cancelar conta", registration_path(resource_name), data: { confirm: "Tem certeza? Essa ação não poderá ser desfeita." },
+        method: :delete, class: "btn btn-outline-danger py-1" %>
+      </div>
+    </div>
   </div>
-<% end %>
 
-<%= link_to 'Sair dessa porra', destroy_user_session_path, method: :delete %>
-<h3>Cancel my account</h3>
+  <br>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-5 text-center">
+      <%= f.input :current_password, hint: "Confirme sua senha atual para efetuar as mudanças", required: true,
+      input_html: { autocomplete: "current-password" } %>
+      <div class="form-actions">
+        <%= f.button :submit, "Atualizar informações", class: "btn btn-primary py-2 mt-2" %>
+      </div>
+      <% end %>
+      <%#= link_to "Voltar", :back %>
+    </div>
+  </div>
+</div>
