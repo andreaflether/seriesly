@@ -15,7 +15,7 @@ input.form-control {
   background-color: rgb(32, 35, 39) !important;
   border: 1px solid rgb(32, 35, 39) !important;
   box-shadow: 7px 7px 5px -8px rgba(18,18,18,1);
-  color: #A9A9A9 !important;
+  color: rgb(110, 118, 125) !important;
   font-size: 1rem !important;
   transition: border ease-in-out .15s !important;
 }
@@ -93,7 +93,7 @@ input[type="checkbox"] + label:before {
 
 input[type="checkbox"] + label,
 	input[type="radio"] + label {
-		color: #808080;
+		color: rgb(110, 118, 125);
 }
 
 input[type="checkbox"] + label:before,
@@ -149,7 +149,7 @@ input[type="radio"]:focus + label:before {
   position: absolute;
   left: 36px;
   padding-top: 10px;
-  color: #808080;
+  color: rgb(110, 118, 125);
 }
 
 .form-group.email.icon-color::before, .form-group.password.icon-color::before, .form-group.user_username.icon-color::before {
@@ -174,10 +174,13 @@ input[type="radio"]:focus + label:before {
   font-size: 0.8rem;
   margin-left: 0.35rem;
   transition: all .15s ease-in-out;
-  // bottom: 29px;
   position: absolute;
 }
 
 .moving-effect {
   margin-left: 0.6rem !important;
+}
+
+.devise-title {
+  color: rgb(217, 217, 217) !important;
 }

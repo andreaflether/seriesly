@@ -39,3 +39,17 @@ h1, h2, h3, h4, h5, h6 {
 .t-50 {
   color: rgba(255, 255, 255, .5);
 }
+
+.text-danger, .invalid-feedback, .btn-outline-danger, .alert {
+  color: rgb(226, 36, 94) !important;
+}
+
+.alert-danger {
+  color: rgb(226, 36, 94) !important;
+  background-color: rgba(226, 36, 94, 0.15) !important;
+  border: none !important;
+}
+
+.form-control-is-invalid {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='%23e2245e' viewBox='-2 -2 7 7'><path stroke='%23e2245e' d='M0 0l3 3m0-3L0 3'/><circle r='.5'/><circle cx='3' r='.5'/><circle cy='3' r='.5'/><circle cx='3' cy='3' r='.5'/></svg>") !important;
+}
