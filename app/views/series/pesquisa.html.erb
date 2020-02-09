@@ -1,0 +1,30 @@
+<div class="container home-container">
+  <div class="row">
+    <div class="col-md-12">
+  </div>
+
+      <h1 class="white-title">Resultados da pesquisa</h1>
+    </div>
+
+    <% @series.each do |s| %>
+
+      <div class="card query mt-3">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-2 col-md-2 col-sm-3">
+              <% if s.poster_path.nil? %>
+              <%= image_tag "https://www.quantabiodesign.com/wp-content/uploads/No-Photo-Available.jpg", class: "img-fluid poster" %>
+              <% else %>
+              <%= image_tag "http://image.tmdb.org/t/p/w300#{s.poster_path}", class: "img-fluid" %>
+              <% end %>
+            </div>
+            <div class="col-2 col-md-10 col-sm-9">
+              <h3><%= link_to s.original_name, seriados_path(tmdb_id: s.id), class: "font-weight-bold" %></h3>
+              <p class="q-overview"><%= s.overview %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+  </div>

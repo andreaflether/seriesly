@@ -34,6 +34,10 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+# Provides Sprockets implementation for Rails 4.x (and beyond) Asset Pipeline.
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+# tether-rails wraps the Tether JavaScript library so that it can easily be included in Rails.
+gem 'popper_js'
 # The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web.
 gem 'bootstrap', '~> 4.3.1'
 # Provides jQuery and the jQuery-ujs driver for your Rails 4+ application.
@@ -41,8 +45,6 @@ gem 'jquery-rails'
 # Forms made easy!
 gem 'simple_form'
 # Provides popper.js assets as a Ruby gem. Works with Rails out of the box.
-gem 'popper_js'
-# tether-rails wraps the Tether JavaScript library so that it can easily be included in Rails.
 gem 'tether-rails'
 # Simple, Heroku-friendly Rails app configuration using ENV and a single YAML file
 gem 'figaro'
@@ -50,8 +52,6 @@ gem 'figaro'
 gem 'devise'
 # A Ruby wrapper for the The Movie Database API.
 gem 'themoviedb'
-# Provides Sprockets implementation for Rails 4.x (and beyond) Asset Pipeline.
-gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

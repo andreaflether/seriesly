@@ -15,7 +15,7 @@ body {
 }
 </style>
 
-<% if current_page?(controller: 'registrations', action: 'edit') %>
+<% if controller.controller_name == "registrations" && controller.action_name == "edit" %>
   <%= yield %>
 <% else %>
   <div class="modal-dialog modal-dialog-centered text-center">

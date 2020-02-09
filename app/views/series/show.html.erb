@@ -1,0 +1,105 @@
+<style>.showcase:before {
+  background: url('<%= link(@serie['backdrop_path'], 'bp') %>') no-repeat center center/cover; }
+</style>
+
+<div class="showcase">
+  <div class="container main-container">
+    <div class="row">
+        <div class="col-md-3 px-4">
+          <%= image_tag "http://image.tmdb.org/t/p/w300#{@serie['poster_path']}", class: "img-fluid" %>
+          <%= link_to 'Adicionar na grade', seriados_path, class:"btn btn-primary btn-block mt-2" %>
+          <%= link_to 'Pretendo assistir', seriados_path, class:"btn btn-outline-primary btn-block mt-2" %>
+        </div>
+        <div class="col-md-9">
+          <h1 class="show-title text-light"><%= @serie['original_name'] %></h1>
+          <p class="show-overview t-80"><%= @serie['overview'] %></p>
+          <hr>
+          <p class="show-info text-light my-0">
+            <span class="mr-1"><i class="fas fa-chart-line"></i></span>
+            <%= @serie['popularity'] %> <span class="mx-3">|</span> <%= @network %> <span class="mx-3">|</span> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <span class="mx-3">|</span> <span class="mr-1"><i class="far fa-eye"></i></span> 948
+          </p>
+          <hr>
+
+          <div class="row mt-3">
+            <div class="col-md-6 text-light overall-info">
+              <h3 class="mb-3 text-light font-weight-bold">Informações técnicas</h3>
+              <p class="t-info"><b>Dirigido por</b> <%= @serie['created_by'][0]['name'] %></p>
+              <p class="t-info"><b>Emissora: </b> <span><%= @network %></span></p>
+              <p class="t-info"><b>Duração: </b> <span><%= @serie['episode_run_time'][0]%> min/ep</span></p>
+              <p class="t-info"><b>Total de episódios: </b><span><%= @serie['number_of_episodes'] %> (<%=@serie['number_of_seasons']  %> temporadas)</span></p>
+              <p class="t-info"><b>Status: </b><span> <%= status(@serie['status']) %></span></p>
+              <p class="t-info"><b>País de origem:</b> <span><%= @serie['origin_country'][0] %></span></p>
+              <%= link_to("#{@serie['homepage']}", target: "_blank", class: "font-weight-bold no-decoration position-relative") do %>
+                Página oficial da série <span class="fas fa-chevron-right"></span>
+              <% end %>
+            </div>
+            <div class="col-md-6 text-light">
+              <h3 class="mb-3 text-light font-weight-bold">Elenco</h3>
+              <% @cast[0..4].each do |c| %>
+              <div class="d-flex characters align-items-center mb-2">
+                <%= image_tag(link(c['profile_path'], 'cp'), class: "cast-pic rounded-circle mr-2")%>
+                <span class="font-weight-bold"><%= c['name'] %></span>
+                <span class="text-split mx-1">/</span>
+                <span class="character"><%= truncate(c['character'], length: 23) %></span>
+                <br>
+              </div>
+              <% end %>
+              <a class="btn btn-outline-primary btn-transparent font-weight-bold mt-2"><i class="fas fa-plus"></i> Ver todos</a>
+
+            </div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+
+
+<ul class="nav nav-pills justify-content-center mt-5 mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item px-3">
+    <a class="nav-link show-guide-tab show active white-title" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile"
+    aria-selected="false"><span class="fas fa-list mr-3"></span>Episódios</a>
+  </li>
+  <li class="nav-item px-3">
+    <a class="nav-link show-guide-tab white-title" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact"
+    aria-selected="false"><span class="far fa-newspaper mr-3"></span>Notícias</a>
+  </li>
+  <li class="nav-item px-3">
+    <a class="nav-link  show-guide-tab white-title" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home"
+    aria-selected="true"><span class="far fa-image mr-3"></span>Fotos</a>
+  </li>
+</ul>
+<div class="tab-content mt-2 d-flex justify-content-center text-light" id="pills-tabContent">
+  <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+  </div>
+  <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+    <%#= @season %>
+    <div class="container">
+      <div class="row">
+
+        <% @season.each do |s| %>
+          <div class="col-md-3 my-3 text-light">
+            <div class="card episode-card bg-transparent">
+              <%= image_tag(link(s['still_path'], 'original'), class: 'card-img-top')  %>
+              <div class="card-body ">
+              <h5 class="font-weight-bold d-flex align-items-center">
+                <%= s['episode_number']%> <span class="primary-color">•</span> <%= s['name'] %>
+              </h5>
+              <p class="episode-overview"><%= truncate(s['overview'], length: 110) %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+
+    <% @tudo.each do |t| %>
+      <%= t['name'] %>
+    <% end %>
+
+  </div>
+</div>

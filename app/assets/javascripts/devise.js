@@ -7,7 +7,11 @@ document.addEventListener("turbolinks:load", function() {
     $(this).removeClass('icon-color');
   });
 
-  $('.devise-links').hover(function () {
+  $('.link-icon').hover(function () {
     $('.icon').toggleClass('moving-effect')
+  });
+
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
   })
 });

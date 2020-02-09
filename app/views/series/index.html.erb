@@ -1,0 +1,50 @@
+<div class="container home-container">
+  <div class="row">
+    <div class="col-md-12 align-items-center align-self-center">
+      <div class="d-flex justify-content-between">
+        <h3 class="font-weight-bold">Populares</h3>
+        <p class="t-info">Ver mais</p>
+      </div>
+    </div>
+    <% @series.each do |s| %>
+      <div class="col-md-2 col-sm-4 text-center show-wrapper mt-3">
+        <div class="img-box">
+          <%= link_to image_tag("http://image.tmdb.org/t/p/w300#{s.poster_path}", class: "img-fluid poster",
+          data: { toggle: "tooltip", placement: "bottom", title: "#{s.original_name}"}), seriados_path(tmdb_id: s.id) %>
+          <ul class="show-actions">
+            <p class="t-info votes"><span class="vote"><%= s.vote_average %></span><span class="mx-2">/</span>10</p>
+            <li><i class="fas fa-check"></i></li>
+            <li><i class="fas fa-bars"></i></li>
+            <li><i class="fas fa-star"></i></li>
+          </ul>
+        </div>
+        <small class="t-info"><%= s.original_name %></small>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Top rated -->
+  <div class="row mt-5">
+    <div class="col-md-12 align-items-center align-self-center">
+      <div class="d-flex justify-content-between">
+        <h3 class="font-weight-bold">Mais bem avaliados</h3>
+        <p class="t-info">Ver mais</p>
+      </div>
+    </div>
+    <% @top_rated.each do |s| %>
+      <div class="col-md-2 col-sm-4 text-center show-wrapper mt-3">
+        <div class="img-box">
+          <%= link_to image_tag("http://image.tmdb.org/t/p/w300#{s.poster_path}", class: "img-fluid poster",
+          data: { toggle: "tooltip", placement: "bottom", title: "#{s.original_name}"}), seriados_path(tmdb_id: s.id) %>
+          <ul class="show-actions">
+            <p class="t-info votes"><span class="vote"><%= s.vote_average %></span><span class="mx-2">/</span>10</p>
+            <li><i class="fas fa-check"></i></li>
+            <li><i class="fas fa-bars"></i></li>
+            <li><i class="fas fa-star"></i></li>
+          </ul>
+        </div>
+        <small class="t-info"><%= s.original_name %></small>
+      </div>
+    <% end %>
+  </div>
+</div>
