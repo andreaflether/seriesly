@@ -19,9 +19,14 @@ module SeriesHelper
     end
   end
 
-  def date_formatter(date)
+  def date_formatter(date, type)
     d = Date.parse(date)
-    d.strftime("%b/%Y")
+    case type
+    when 'year'
+      d.strftime("%Y")
+    when 'm/y'
+      d.strftime("%b/%Y")
+    end
   end
 
   def link(path, type)

@@ -12,15 +12,16 @@
   </head>
 
   <body>
+
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand text-light js-scroll-trigger" href="/">Seriesly?</a>
+        <a class="navbar-brand js-scroll-trigger" href="/">Seriesly?</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <%= form_tag(pesquisa_path, method: :get, class: "search_box my-2 my-lg-0 mx-auto") do %>
+          <%= form_tag(pesquisa_path, method: :get, class: "search_box my-2 my-lg-0 ml-auto") do %>
             <%= text_field_tag :search, params[:search], placeholder: "Procurar série...", class: "form-control tst mr-sm-2" %>
             <%= button_tag '', search: nil, class:"submit-btn" do %>
               <i class="fas fa-search"></i>
@@ -32,44 +33,50 @@
               <a class="nav-link notifications"><i class="fas fa-bell"></i></a>
             </li>
 
+            <% if user_signed_in? %>
             <li class="nav-item">
-              <a class="nav-link sidebar-icon mr-0 pr-0" id="ddm"><i class="fas fa-bars"></i></a>
+              <a class="nav-link sidebar-icon mr-0 pr-0 pl-3" id="ddm"><i class="fas fa-bars"></i></a>
             </li>
+            <% end %>
 
           </ul>
+
+          <% if user_signed_in? %>
           <div class="sidebar">
-        <%= image_tag "https://pt.gravatar.com/userimage/94467047/20f10982f0400e26aca317e577069413.jpeg", class:"rounded-circle d-block avatars mx-auto" %>
-        <% if user_signed_in? %>
-          <%= current_user.name %>
-        <% end %>
-        <p class="user-name mt-2 t-info text-center">Andréa Alencar</p>
-        <ul>
-          <h6 class="text-muted ml-4">Principal</h6>
-            <li><a href="#"><i class="fas fa-home mr-3"></i>Dashboard</a></li>
-            <li><a href="#"><i class="fas fa-film mr-3"></i>Lançamentos</a></li>
-            <li><a href="#"><i class="far fa-calendar-alt mr-3"></i>Calendário</a></li>
-            <li><a href="#"><i class="fas fa-users mr-2"></i>Feed de amigos</a></li>
-        </ul>
-        <ul>
-          <h6 class="text-muted ml-4">Conta</h6>
-          <li><a href="#"><i class="fas fa-cog mr-3"></i>Preferências</a></li>
-          <li><a href="#"><i class="fas fa-sign-out-alt mr-3"></i>Sair</a></li>
+            <div class="d-flex">
+              <%= image_tag "https://pt.gravatar.com/userimage/94467047/20f10982f0400e26aca317e577069413.jpeg", class:"rounded-circle d-block avatars mx-auto" %>
+              <a id="close" style="position: absolute; left: 20px;"><i class="fas fa-times"></i></a>
+            </div>
+            <p class="user-name mt-2 t-info text-center"><%= current_user.name %></p>
+            <ul>
+              <h6 class="text-muted ml-4">Principal</h6>
+              <a href="#"><li><i class="fas fa-home mr-3"></i>Dashboard</li></a>
+              <a href="#"><li><i class="fas fa-film mr-3"></i>Lançamentos</li></a>
+              <a href="#"><li><i class="far fa-calendar-alt mr-3"></i>Calendário</li></a>
+              <a href="#"><li><i class="fas fa-users mr-2"></i>Feed de amigos</li></a>
+            </ul>
+            <ul>
+              <h6 class="text-muted ml-4">Conta</h6>
+              <%= link_to edit_user_registration_path do %>
+                <li><i class="fas fa-cog mr-3"></i>Preferências</li>
+              <% end %>
 
-        </ul>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <li><i class="fas fa-sign-out-alt mr-3"></i>Sair</li>
+              <% end %>
+            </ul>
 
-        <div class="social_media">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-      </div>
-    </div>
+            <div class="social_media">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <% end %>
         </div>
-
-
-
-
       </div>
-      </nav>
+    </nav>
+
 
 
 
@@ -80,6 +87,10 @@
 <script>
   $('#ddm').on('click', function() {
     $('.sidebar').toggleClass('active');
-    console.log("GICELA");
-  })
+  });
+  $('#close').on('click', function() {
+    $('.sidebar').removeClass('active');
+    console.log('pipoca')
+  });
+
 </script>

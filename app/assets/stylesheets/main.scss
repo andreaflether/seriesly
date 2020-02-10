@@ -101,7 +101,7 @@ input.form-control, textarea.form-control {
   border-color: rgb(121, 75, 196) !important;
   outline: 0 !important;
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6) !important;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(121, 75, 196, 0.3) !important;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(121, 75, 196, 0.2) !important;
 }
 
 .form-group > label {
@@ -199,6 +199,6 @@ input[type="radio"]:focus + label:before {
 	box-shadow: 0 0 0 1px rgb(121, 75, 196);
 }
 
-.white-title, .t-info, .characters span, .episode-overview, .notifications {
+.white-title, .t-info, .characters span, .episode-overview, .notifications, .sidebar-icon, #close {
   color: rgb(217, 217, 217) !important;
 }
