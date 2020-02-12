@@ -52,6 +52,8 @@ gem 'figaro'
 gem 'devise'
 # A Ruby wrapper for the The Movie Database API.
 gem 'themoviedb'
+# Rails view helper for grabbing Gravatar images.
+gem 'gravatar_image_tag'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

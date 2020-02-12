@@ -44,19 +44,22 @@
           <% if user_signed_in? %>
           <div class="sidebar">
             <div class="d-flex">
-              <%= image_tag "https://pt.gravatar.com/userimage/94467047/20f10982f0400e26aca317e577069413.jpeg", class:"rounded-circle d-block avatars mx-auto" %>
+
+              <%= gravatar_image_tag(current_user.email.gsub('spam', 'mdeering'), :alt => '#{current_user.name}', :class => 'rounded-circle d-block avatars mx-auto') %>
               <a id="close" style="position: absolute; left: 20px;"><i class="fas fa-times"></i></a>
             </div>
             <p class="user-name mt-2 t-info text-center"><%= current_user.name %></p>
-            <ul>
-              <h6 class="text-muted ml-4">Principal</h6>
+            <ul class="mb-0">
+              <h6 class="text-muted">Principal</h6>
               <a href="#"><li><i class="fas fa-home mr-3"></i>Dashboard</li></a>
               <a href="#"><li><i class="fas fa-film mr-3"></i>Lançamentos</li></a>
               <a href="#"><li><i class="far fa-calendar-alt mr-3"></i>Calendário</li></a>
-              <a href="#"><li><i class="fas fa-users mr-2"></i>Feed de amigos</li></a>
+              <a href="#"><li><i class="fas fa-list mr-3"></i>Watchlist</li></a>
+              <a href="#"><li><i class="fas fa-users"></i>Feed de amigos</li></a>
             </ul>
+            <hr>
             <ul>
-              <h6 class="text-muted ml-4">Conta</h6>
+              <h6 class="text-muted">Conta</h6>
               <%= link_to edit_user_registration_path do %>
                 <li><i class="fas fa-cog mr-3"></i>Preferências</li>
               <% end %>

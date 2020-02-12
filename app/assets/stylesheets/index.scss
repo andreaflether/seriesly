@@ -126,7 +126,7 @@
   font-size: 30px;
 }
 
-.sidebar{
+.sidebar {
   width: 250px;
   height: 100%;
   background: rgb(21, 24, 28);
@@ -153,19 +153,32 @@
   margin-bottom: 30px;
 }
 
- .sidebar ul li{
-  padding: 13px 20px 13px 20px;
-  border-bottom: 1px solid #bdb8d7;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  border-top: 1px solid rgba(255,255,255,0.05);
+ .sidebar ul li {
+  padding: 10px 20px 10px 20px;
+  // border-bottom: 1px solid #bdb8d7;
+  // border-bottom: 1px solid rgba(0,0,0,0.05);
+  // border-top: 1px solid rgba(255,255,255,0.05);
   list-style: none;
+}
+
+.sidebar ul li .fa-users {
+  margin-right: 0.8rem !important;
+}
+
+.sidebar ul h6 {
+  margin: 10px 20px 5px 20px !important;
+}
+
+.sidebar hr {
+  margin: 10px 20px 15px 20px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 .sidebar ul h6 {
   color: rgb(121, 75, 196);
-  font-size: 1rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
 
  .sidebar ul a li {
@@ -178,7 +191,9 @@
 }
 
 .sidebar ul li:hover{
-  background-color: lighten(rgb(21, 24, 28), 5%);
+  // background-color: lighten(rgb(21, 24, 28), 5%);
+  // background-color: rgba(121, 75, 196, 0.2) !important;
+  color: rgb(121, 75, 196) !important;
 }
 
 .sidebar ul li:hover a{
@@ -211,6 +226,10 @@
   height: auto;
 }
 
+#close svg:hover {
+  color: rgb(121, 75, 196);
+}
+
 .user-name {
   // color: rgb(121, 75, 196);
   font-weight: bold;
@@ -224,4 +243,8 @@
 .box-wrapper {
   display: inline-block !important;
   position: relative !important;
+}
+
+.main-category {
+  font-size: 1.55rem !important;
 }
