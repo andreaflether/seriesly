@@ -1,70 +1,55 @@
 $primary: rgb(121, 75, 196);
+$white: rgb(217, 217, 217);
 
 // Menu
-#mainNav .navbar-brand {
- color: #15a9ea;
- font-weight: 600;
-}
-
-#mainNav .navbar-brand.active, #mainNav .navbar-brand:active,#mainNav .navbar-brand:focus,#mainNav .navbar-brand:hover {
- color: rgb(72, 139, 245);
-}
-
-#mainNav .navbar-nav .nav-item .nav-link {
- font-size:90%;
- font-weight:400;
- // padding:.75em 0;
- letter-spacing:1px;
- color:#fff;
- font-family:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'
-}
-
-#mainNav .navbar-nav .nav-item .nav-link.active,#mainNav .navbar-nav .nav-item .nav-link:hover {
- color: #15a9ea;
-}
-
-.user-menu {
-  font-weight: 400;
-  text-transform: none;
-}
-
-@media (min-width:992px) {
-   #mainNav{
-     padding-top: 25px;
-     padding-bottom: 25px;
-     transition: padding-top .3s,padding-bottom .3s;
-     border: none;
-     background-color: transparent;
-   }
-
-   #mainNav .navbar-brand {
-     font-size: 1.75em;
-     transition:all .3s;
-   }
-
-   #mainNav .navbar-nav .nav-item .nav-link {
-     // padding: 1.1em 1em !important;
-   }
-
-   #mainNav.navbar-shrink {
-     padding-top:0;
-     padding-bottom:0;
-     background-color:#212529;
-   }
-
-  #mainNav.navbar-shrink .navbar-brand {
-    font-size:1.25em;
-    padding:12px 0;
+#mainNav {
+  .navbar-brand {
+   color: #15a9ea;
+   font-weight: 600;
+  }
+  .navbar-brand.active, .navbar-brand:active, .navbar-brand:focus, .navbar-brand:hover {
+    color: rgb(72, 139, 245);
+  }
+  .navbar-nav .nav-item .nav-link {
+   font-size: 90%;
+   font-weight: 400;
+   // padding: .75em 0;
+   letter-spacing: 1px;
+   color: $white;
+   font-family: 'PT Sans', sans-serif;
+  }
+  .navbar-nav .nav-item .nav-link.active, .navbar-nav .nav-item .nav-link:hover {
+   color: #15a9ea;
   }
 }
 
-.search-input, .genre-badge {
-  color: white !important;
-  font-family: 'PT Sans', sans-serif;
-  border: none !important;
-  font-weight: 400 !important;
+@media (min-width: 992px) {
+   #mainNav {
+     padding-top: 25px;
+     padding-bottom: 25px;
+     transition: padding-top .3s, padding-bottom .3s;
+     border: none;
+     background-color: transparent;
+     .navbar-brand {
+       font-size: 1.75em;
+       transition: all .3s;
+     }
+     .navbar-nav .nav-item .nav-link {
+       // padding: 1.1em 1em !important;
+     }
+   }
+   #mainNav.navbar-shrink { // Navbar no scroll up
+     padding-top: 3px;
+     padding-bottom: 3px;
+     background-color: #212529;
+   }
+   #mainNav.navbar-shrink .navbar-brand {
+     font-size: 1.6em;
+     padding: 12px 0;
+   }
 }
-.search_box{
+
+.search_box {
   width: 50%;
   position: relative !important;
 }
@@ -73,13 +58,13 @@ $primary: rgb(121, 75, 196);
   padding: 20px;
   box-sizing: border-box;
   background: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: none !important;
   border: none;
   border-radius: 3px;
   font-size: 15px;
   outline: none;
   font-family: 'PT Sans', sans-serif;
   color: rgba(255, 255, 255, 0.6) !important;
-  // box-shadow: none !important;
 }
 
 .search_box input::placeholder {
@@ -95,57 +80,14 @@ $primary: rgb(121, 75, 196);
   background-color: transparent !important;
   border: none !important;
   transition: all .15s ease-in-out;
+  .fa-search:hover {
+    color: $primary;
+  }
+  .fa-search {
+    color: rgb(200, 200, 200);
+  }
 }
 
 .submit-btn, .submit-btn > .fa-search:hover {
   transition: all .15s ease-in-out;
 }
-
-.submit-btn .fa-search:hover {
-  color: $primary;
-}
-
-.submit-btn .fa-search {
-  color: rgb(200, 200, 200);
-}
-
-// Dropdown Menu
-.dropdown-menu hr {
-  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-
-.dropdown-menu {
-  background-color: rgb(21, 24, 28) !important;
-}
-
-.dropdown-menu:before {
-  content: "";
-  position: absolute;
-  right: 120px;
-  top: -10px;
-  width: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid rgb(21, 24, 28);
-}
-
-.dropdown-menu .dp-user {
-  color: rgb(217, 217, 217) !important;
-}
-
-.dp-user:hover {
-  background-color: lighten(rgb(21, 24, 28), 3%) !important;
-}
-
-// .notifications svg, .sidebar-icon svg {
-//   padding: 5px !important;
-//   font-size: 22px !important;
-//   width: 29px !important;
-//   height: 29px !important;
-// }
-//
-// .notifications svg:hover, .sidebar-icon svg:hover {
-//   font-size: 20px;
-//   background-color: rgba(121, 75, 196, 0.25);
-//   border-radius: 50px;
-// }

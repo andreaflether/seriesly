@@ -44,11 +44,11 @@
           <% if user_signed_in? %>
           <div class="sidebar">
             <div class="d-flex">
-
-              <%= gravatar_image_tag(current_user.email.gsub('spam', 'mdeering'), :alt => '#{current_user.name}', :class => 'rounded-circle d-block avatars mx-auto') %>
-              <a id="close" style="position: absolute; left: 20px;"><i class="fas fa-times"></i></a>
+              <%= gravatar_image_tag(current_user.email.gsub('spam', 'mdeering'), :alt => '#{current_user.name}',
+              :class => 'rounded-circle d-block avatar mx-auto') %>
+              <a id="close"><i class="fas fa-times"></i></a>
             </div>
-            <p class="user-name mt-2 t-info text-center"><%= current_user.name %></p>
+            <p class="font-weight-bold mt-2 white-title text-center"><%= current_user.name %></p>
             <ul class="mb-0">
               <h6 class="text-muted">Principal</h6>
               <a href="#"><li><i class="fas fa-home mr-3"></i>Dashboard</li></a>

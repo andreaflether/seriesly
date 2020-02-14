@@ -4,7 +4,7 @@
     <div class="col-md-12 align-items-center align-self-center">
       <div class="d-flex justify-content-between">
         <h3 class="font-weight-bold white-title m-0 main-category"><i class="fas fa-chart-line mr-3"></i>Populares</h3>
-        <p class="t-info my-auto">Ver mais ></p>
+        <p class="t-info my-auto font-weight-bold">Ver mais</p>
       </div>
     </div>
     <% @series.each do |s| %>
@@ -12,8 +12,7 @@
       <div class="col-md-2 col-sm-4 text-center show-wrapper mt-3">
         <div class="box-wrapper">
           <div class="img-box mb-1">
-            <%= link_to image_tag("http://image.tmdb.org/t/p/w300#{s.poster_path}", class: "img-fluid poster",
-            data: { toggle: "tooltip", placement: "bottom", title: "#{s.original_name}"}), seriados_path(tmdb_id: s.id) %>
+            <%= link_to (image_tag ("http://image.tmdb.org/t/p/w300#{s.poster_path}"), class: "img-fluid poster"), seriados_path(tmdb_id: s.id) %>
             <ul>
               <li><%= truncate(s.overview, length: 120, omission: " ... %s") % link_to('Ler mais', seriados_path(tmdb_id: s.id)) %></li>
             </ul>
@@ -21,9 +20,9 @@
 
           <br>
           <small class="t-info float-left"><%= s.original_name %></small> <br>
-          <div class="d-flex justify-content-between series-small-info">
-            <p><%= date_formatter(s.first_air_date, 'year') %></p>
-            <p><i class="far fa-heart"></i><i class="fas fa-check"></i><i class="fas fa-star"></i><span><%= s.vote_average %></span></p>
+          <div class="d-block justify-content-between series-small-info" >
+            <p style="display: inline; float: left;"><%= date_formatter(s.first_air_date, 'year') %></p>
+            <p style="display: inline; float: right;"><i class="far fa-heart"></i><i class="fas fa-check"></i><i class="fas fa-star"></i><span><%= s.vote_average %></span></p>
           </div>
         </div>
       </div>
@@ -45,6 +44,9 @@
         <div class="img-box mb-1">
 
           <%= link_to (image_tag ("http://image.tmdb.org/t/p/w300#{s.poster_path}"), class: "img-fluid poster"), seriados_path(tmdb_id: s.id) %>
+          <ul>
+            <li><%= truncate(s.overview, length: 120, omission: " ... %s") % link_to('Ler mais', seriados_path(tmdb_id: s.id)) %></li>
+          </ul>
         </div>
 
 
