@@ -42,4 +42,15 @@ navbarCollapse();
 $(window).scroll(navbarCollapse);
 
 })(jQuery); // End of use strict
+
+$('.sidebar-icon').on('click', function() {
+  $('.sidebar').toggleClass('active');
+  console.log("CU")
 });
+$('.close').on('click', function() {
+  $('.sidebar').removeClass('active');
+});
+
+});
+
+// Sidebar

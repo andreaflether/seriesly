@@ -11,12 +11,9 @@ $white: rgb(217, 217, 217);
     color: rgb(72, 139, 245);
   }
   .navbar-nav .nav-item .nav-link {
-   font-size: 90%;
    font-weight: 400;
-   // padding: .75em 0;
-   letter-spacing: 1px;
    color: $white;
-   font-family: 'PT Sans', sans-serif;
+
   }
   .navbar-nav .nav-item .nav-link.active, .navbar-nav .nav-item .nav-link:hover {
    color: #15a9ea;

@@ -11,26 +11,30 @@ class SeriesController < ApplicationController
   end
 
   def show
-    @serie = Tmdb::TV.detail(params[:tmdb_id])
-    @network = @serie['networks'] == [] ? 'Não disponível' : @serie['networks'][0]['name']
+    @serie = Tmdb::TV.detail(params[:tmdb_id]) # Informações principais da série
+    @network = @serie['networks'] == [] ? 'Não disponível' : @serie['networks'][0]['name'] # Emissora
     @cast = Tmdb::TV.cast(params[:tmdb_id])
-    @season = Tmdb::Season.detail(params[:tmdb_id], @serie['number_of_seasons'])['episodes']
+
+    @number_of_seasons = @serie['number_of_seasons']
+    @number_of_episodes = @serie['number_of_episodes']
+
+    @season = Tmdb::Season.detail(params[:tmdb_id], @number_of_seasons)['episodes']
+
     @teste = []
     @tudo = []
-    @serie['number_of_seasons'].times do |s|
+
+    @number_of_seasons.times do |s|
       @seasons = Tmdb::Season.detail(params[:tmdb_id], s+1)
       @seasons = @seasons['episodes']
       @seasons.each do |s|
         @episode_name = s['name']
         @teste = @teste.push(@episode_name)
         @tudo = @tudo.push(s)
-
       end
     end
   end
 
   def pesquisa
-    puts @series
   end
 
   def season(id, s)

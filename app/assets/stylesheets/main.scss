@@ -2,6 +2,8 @@
 
 $primary: rgb(121, 75, 196);
 $link-hover: darken($primary, 10%);
+$light: rgb(217, 217, 217);
+$light-hover: darken($light, 10%);
 
 * {
   font-family: 'PT Sans', sans-serif !important;
@@ -25,11 +27,14 @@ h1, h2, h3, h4, h5, h6, .primary {
   color: rgb(121, 75, 196) !important;
 }
 
+.btn-primary, .btn-light, .btn-outline-primary, .btn-outline-light {
+  transition: all .1s ease-in-out !important;
+}
+
 .btn-primary {
   background-color: $primary !important;
   border: none !important;
   color: #fff !important;
-  transition: all .1s ease-in-out !important;
 }
 
 .btn-primary:hover {
@@ -44,6 +49,28 @@ h1, h2, h3, h4, h5, h6, .primary {
 
 .btn-outline-primary:hover {
   background-color: rgba(121, 75, 196, 0.1) !important;
+}
+
+.btn-light {
+  background-color: $light !important;
+  border: none !important;
+  color: rgb(35, 35, 35) !important;
+  border: 1px solid $light !important;
+}
+
+.btn-light:hover {
+  background-color: $light-hover !important;
+  color: rgb(35, 35, 35) !important;
+}
+
+.btn-outline-light {
+  color: $light !important;
+  border: 1px solid $light !important;
+}
+
+.btn-outline-light:hover {
+  background-color: rgba(217, 217, 217, 0.2) !important;
+  color: $light !important;
 }
 
 .t-30 {

@@ -6,9 +6,9 @@
   <div class="container main-container">
     <div class="row">
         <div class="col-md-3 px-4">
-          <%= image_tag "http://image.tmdb.org/t/p/w300#{@serie['poster_path']}", class: "img-fluid" %>
-          <%= link_to 'Adicionar na grade', seriados_path, class:"btn btn-primary btn-block mt-2" %>
-          <%= link_to 'Pretendo assistir', seriados_path, class:"btn btn-outline-primary btn-block mt-2" %>
+            <%= image_tag "http://image.tmdb.org/t/p/w300#{@serie['poster_path']}", class: "img-fluid" %>
+            <%= link_to 'Adicionar na grade', seriados_path, class:"btn btn-primary btn-block mt-2" %>
+            <%= link_to 'Pretendo assistir', seriados_path, class:"btn btn-outline-primary btn-block mt-2" %>
         </div>
         <div class="col-md-9">
           <h1 class="show-title text-light"><%= @serie['original_name'] %></h1>
@@ -24,12 +24,12 @@
           <div class="row mt-3">
             <div class="col-md-6 text-light overall-info">
               <h3 class="mb-3 text-light font-weight-bold">Informações técnicas</h3>
-              <p class="t-info"><b>Dirigido por</b> <%= @serie['created_by'][0]['name'] %></p>
-              <p class="t-info"><b>Emissora: </b> <span><%= @network %></span></p>
-              <p class="t-info"><b>Duração: </b> <span><%= @serie['episode_run_time'][0]%> min/ep</span></p>
-              <p class="t-info"><b>Total de episódios: </b><span><%= @serie['number_of_episodes'] %> (<%=@serie['number_of_seasons']  %> temporadas)</span></p>
-              <p class="t-info"><b>Status: </b><span> <%= status(@serie['status']) %></span></p>
-              <p class="t-info"><b>País de origem:</b> <span><%= @serie['origin_country'][0] %></span></p>
+              <p class="show-info"><b>Dirigido por</b> <%= @serie['created_by'][0]['name'] %></p>
+              <p class="show-info"><b>Emissora: </b> <span><%= @network %></span></p>
+              <p class="show-info"><b>Duração: </b> <span><%= @serie['episode_run_time'][0]%> min/ep</span></p>
+              <p class="show-info"><b>Total de episódios: </b><span><%= @serie['number_of_episodes'] %> (<%=@serie['number_of_seasons']  %> temporadas)</span></p>
+              <p class="show-info"><b>Status: </b><span> <%= status(@serie['status']) %></span></p>
+              <p class="show-info"><b>País de origem:</b> <span><%= @serie['origin_country'][0] %></span></p>
               <%= link_to("#{@serie['homepage']}", target: "_blank", class: "font-weight-bold no-decoration position-relative") do %>
                 Página oficial da série <span class="fas fa-chevron-right"></span>
               <% end %>
@@ -81,6 +81,7 @@
         <% @season.each do |s| %>
           <div class="col-md-3 my-3 text-light">
             <div class="card episode-card bg-transparent">
+
               <%= image_tag(link(s['still_path'], 'original'), class: 'card-img-top')  %>
               <div class="card-body ">
               <h5 class="font-weight-bold d-flex align-items-center">
@@ -100,6 +101,12 @@
     <% @tudo.each do |t| %>
       <%= t['name'] %>
     <% end %>
+
+    <%= @tudo %>
+
+    <%= @teste %>
+
+    <%= @number_of_seasons %>
 
   </div>
 </div>

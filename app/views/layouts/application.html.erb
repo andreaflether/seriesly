@@ -29,16 +29,25 @@
           <% end %>
 
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link notifications"><i class="fas fa-bell"></i></a>
-            </li>
-
             <% if user_signed_in? %>
-            <li class="nav-item">
-              <a class="nav-link sidebar-icon mr-0 pr-0 pl-3" id="ddm"><i class="fas fa-bars"></i></a>
-            </li>
+              <li class="nav-item">
+                <a class="nav-link notifications badge-notification" data-badge=""><i class="fas fa-bell"></i></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link sidebar-icon mr-0 pr-0 pl-3"><i class="fas fa-bars"></i></a>
+              </li>
             <% end %>
 
+            <% unless user_signed_in? %>
+            <li class="nav-item mr-2">
+              <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-outline-light px-3"  %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to "Criar conta", new_user_registration_path, class: "nav-link btn btn-light px-3"  %>
+            </li>
+            <% end %>
           </ul>
 
           <% if user_signed_in? %>
@@ -46,7 +55,7 @@
             <div class="d-flex">
               <%= gravatar_image_tag(current_user.email.gsub('spam', 'mdeering'), :alt => '#{current_user.name}',
               :class => 'rounded-circle d-block avatar mx-auto') %>
-              <a id="close"><i class="fas fa-times"></i></a>
+              <a class="close"><i class="fas fa-times fa-sm"></i></a>
             </div>
             <p class="font-weight-bold mt-2 white-title text-center"><%= current_user.name %></p>
             <ul class="mb-0">
@@ -88,12 +97,5 @@
 </html>
 
 <script>
-  $('#ddm').on('click', function() {
-    $('.sidebar').toggleClass('active');
-  });
-  $('#close').on('click', function() {
-    $('.sidebar').removeClass('active');
-    console.log('pipoca')
-  });
 
 </script>
